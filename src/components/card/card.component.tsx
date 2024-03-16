@@ -1,10 +1,11 @@
-import { Hotel } from '../../types';
+import { Hotel, Booking } from '../../types';
 
 type CardProps = {
   hotel: Hotel;
+  booking: Booking;
 };
 
-export default function Card({ hotel }: CardProps) {
+export default function Card({ hotel, booking }: CardProps) {
   return (
     <>
       <h2>{hotel.hotelName}</h2>
@@ -22,6 +23,9 @@ export default function Card({ hotel }: CardProps) {
           </li>
         ))}
       </ul>
+      <p>
+        <strong>{booking.numAdults}</strong> Adults
+      </p>
       <h3>Overview</h3>
       <p>{hotel.overview}</p>
     </>
