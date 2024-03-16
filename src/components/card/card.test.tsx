@@ -34,4 +34,10 @@ describe('Hotel information is displayed', () => {
 
     expect(hotelLocation).toHaveTextContent(testHotel.hotelLocation);
   });
+
+  it('should render a number of star icons corresponding to the rating', () => {
+    const stars = screen.getAllByTestId('star-rating');
+
+    expect(stars).toHaveLength(2);
+  });
 });
