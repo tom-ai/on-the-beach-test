@@ -13,7 +13,7 @@ describe('Hotel information is displayed', () => {
   };
 
   it('should render an h2 for the hotel name', () => {
-    render(<Card />);
+    render(<Card hotel={testHotel} />);
 
     const hotelName = screen.getByRole('heading', {
       level: 2,
@@ -24,15 +24,15 @@ describe('Hotel information is displayed', () => {
   });
 
   it('should render a paragraph below for the hotel location', () => {
-    render(<Card />);
+    render(<Card hotel={testHotel} />);
 
     const hotelName = screen.getByRole('heading', {
       level: 2,
-      name: testHotel.hotelLocation,
+      name: testHotel.hotelName,
     });
 
     const hotelLocation = hotelName.nextSibling;
 
-    expect(hotelLocation).toHaveTextContent(/hotel location/i);
+    expect(hotelLocation).toHaveTextContent(testHotel.hotelLocation);
   });
 });
