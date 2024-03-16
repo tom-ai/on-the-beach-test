@@ -26,6 +26,9 @@ export default function Card({ hotel, booking }: CardProps) {
       <p>
         <strong>{booking.numAdults}</strong> Adults
       </p>
+      <p>
+        <strong>{booking.numChildren}</strong> Children
+      </p>
       <h3>Overview</h3>
       <p>{hotel.overview}</p>
     </>

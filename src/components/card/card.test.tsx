@@ -78,7 +78,7 @@ describe('Booking information', () => {
 
     const testBooking: Booking = {
       numAdults: 2,
-      numChildren: 2,
+      numChildren: 1,
       numInfants: 1,
       date: new Date(2019, 6, 3),
       durationInDays: 7,
@@ -94,5 +94,14 @@ describe('Booking information', () => {
 
     expect(numOfAdults).toBeVisible();
     expect(screen.getByText(/adults/i));
+  });
+
+  it('should display number of children', () => {
+    const numOfChildren = screen.getByText((content) =>
+      content.startsWith('1')
+    );
+
+    expect(numOfChildren).toBeVisible();
+    expect(screen.getByText(/children/i));
   });
 });
