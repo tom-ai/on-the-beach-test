@@ -3,9 +3,9 @@ export type Booking = {
   numChildren: number;
   numInfants: number;
   date: Date;
-  duration: number;
+  durationInDays: number;
   departingFrom: string;
-  price: number;
+  priceInPence: number;
 };
 
 export type Hotel = {

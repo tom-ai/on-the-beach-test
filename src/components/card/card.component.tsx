@@ -10,8 +10,8 @@ export default function Card({ hotel }: CardProps) {
       <h2>{hotel.hotelName}</h2>
       <p>{hotel.hotelLocation}</p>
       <ul>
-        {[...Array(hotel.starRating)].map((star) => (
-          <li key={star}>
+        {[...Array(hotel.starRating)].map((_star, i) => (
+          <li key={i}>
             <svg
               data-testid="star-rating"
               xmlns="http://www.w3.org/2000/svg"
