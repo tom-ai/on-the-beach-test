@@ -40,4 +40,13 @@ describe('Hotel information is displayed', () => {
 
     expect(stars).toHaveLength(2);
   });
+
+  it('should render an h3 overview heading', () => {
+    const overviewHeading = screen.getByRole('heading', {
+      level: 3,
+      name: /overview/i,
+    });
+
+    expect(overviewHeading).toBeVisible();
+  });
 });

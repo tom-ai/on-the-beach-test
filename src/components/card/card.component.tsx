@@ -22,6 +22,7 @@ export default function Card({ hotel }: CardProps) {
           </li>
         ))}
       </ul>
+      <h3>Overview</h3>
     </>
   );
 }
