@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import Card from './card.component';
-import { Hotel } from '../../types/hotel';
-import { Booking } from '../../types/booking';
+import { Hotel } from '../../types';
 
 describe('Hotel information is displayed', () => {
   const testHotel: Hotel = {
@@ -12,9 +11,11 @@ describe('Hotel information is displayed', () => {
       'Welcome to the luxurious Azure Oasis Hotel, where dreams meet reality. Nestled amidst the rolling hills of nowhere, our hotel offers unparalleled tranquility and serenity. Enjoy our non-existent spa treatments and indulge in our imaginary gourmet cuisine, all while basking in the warmth of our nonexistent sunsets.',
   };
 
-  it('should render an h2 for the hotel name', () => {
+  beforeEach(() => {
     render(<Card hotel={testHotel} />);
+  });
 
+  it('should render an h2 for the hotel name', () => {
     const hotelName = screen.getByRole('heading', {
       level: 2,
       name: testHotel.hotelName,
@@ -23,9 +24,7 @@ describe('Hotel information is displayed', () => {
     expect(hotelName).toBeVisible();
   });
 
-  it('should render a paragraph below for the hotel location', () => {
-    render(<Card hotel={testHotel} />);
-
+  it('should render the hotel location next to the name', () => {
     const hotelName = screen.getByRole('heading', {
       level: 2,
       name: testHotel.hotelName,
