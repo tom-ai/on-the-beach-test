@@ -49,4 +49,10 @@ describe('Hotel information is displayed', () => {
 
     expect(overviewHeading).toBeVisible();
   });
+
+  it('should render the overview', () => {
+    const overview = screen.getByText(testHotel.overview);
+
+    expect(overview).toBeVisible();
+  });
 });
