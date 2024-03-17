@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import Card from './card.component';
 import { Booking, Hotel } from '../../types';
 
-describe('Hotel information is displayed', () => {
+describe('Hotel information', () => {
   const testHotel: Hotel = {
     hotelName: 'Hotel Testing',
     hotelLocation: 'Costa del Test',
@@ -20,11 +20,12 @@ describe('Hotel information is displayed', () => {
     departingFrom: 'Test Station',
     priceInPence: 250099,
   };
+
   beforeEach(() => {
     render(<Card hotel={testHotel} booking={testBooking} />);
   });
 
-  it('should render an h2 for the hotel name', () => {
+  it('should display hotel name with H2', () => {
     const hotelName = screen.getByRole('heading', {
       level: 2,
       name: testHotel.hotelName,
@@ -33,7 +34,7 @@ describe('Hotel information is displayed', () => {
     expect(hotelName).toBeVisible();
   });
 
-  it('should render the hotel location next to the name', () => {
+  it('should display hotel location next to the name', () => {
     const hotelName = screen.getByRole('heading', {
       level: 2,
       name: testHotel.hotelName,
@@ -44,13 +45,13 @@ describe('Hotel information is displayed', () => {
     expect(hotelLocation).toHaveTextContent(testHotel.hotelLocation);
   });
 
-  it('should render a number of star icons corresponding to the rating', () => {
+  it('should display a number of star icons corresponding to the rating', () => {
     const stars = screen.getAllByTestId('star-rating');
 
     expect(stars).toHaveLength(2);
   });
 
-  it('should render an h3 overview heading', () => {
+  it('should display an overview heading with H3', () => {
     const overviewHeading = screen.getByRole('heading', {
       level: 3,
       name: /overview/i,
@@ -59,7 +60,7 @@ describe('Hotel information is displayed', () => {
     expect(overviewHeading).toBeVisible();
   });
 
-  it('should render the overview', () => {
+  it('should display the overview text', () => {
     const overview = screen.getByText(testHotel.overview);
 
     expect(overview).toBeVisible();
@@ -85,7 +86,7 @@ describe('Booking information', () => {
     priceInPence: 250099,
   };
 
-  // https://medium.com/p/60ea41843961
+  // Help from: https://medium.com/p/60ea41843961
   it('should display single adult', () => {
     const bookingWithSingleAdult: Booking = {
       ...booking,
@@ -96,7 +97,7 @@ describe('Booking information', () => {
     expect(screen.getByLabelText(/Adult/)).toHaveTextContent('1');
   });
 
-  it('should display multiple adults)', () => {
+  it('should display multiple adults', () => {
     const bookingWithMultipleAdults: Booking = {
       ...booking,
       numAdults: 4,
@@ -149,5 +150,29 @@ describe('Booking information', () => {
     render(<Card hotel={testHotel} booking={bookingWithMultipleInfants} />);
 
     expect(screen.getByLabelText(/Infants/)).toHaveTextContent('3');
+  });
+
+  it('should not display zero children', () => {
+    const bookingWithZeroChildren: Booking = {
+      ...booking,
+      numChildren: 0,
+    };
+
+    render(<Card hotel={testHotel} booking={bookingWithZeroChildren} />);
+
+    expect(screen.queryByLabelText(/Child/)).not.toBeInTheDocument();
+    expect(screen.queryByLabelText(/Children/)).not.toBeInTheDocument();
+  });
+
+  it('should not display zero infants', () => {
+    const bookingWithZeroInfants: Booking = {
+      ...booking,
+      numInfants: 0,
+    };
+
+    render(<Card hotel={testHotel} booking={bookingWithZeroInfants} />);
+
+    expect(screen.queryByLabelText(/Infant/)).not.toBeInTheDocument();
+    expect(screen.queryByLabelText(/Infants/)).not.toBeInTheDocument();
   });
 });
