@@ -191,7 +191,7 @@ describe('Booking information', () => {
       numChildren: 0,
       numInfants: 0,
       date: new Date(2019, 6, 3),
-      durationInDays: 7,
+      durationInDays: 2,
       departingFrom: 'Test Station',
       priceInPence: 250099,
     };
@@ -201,6 +201,27 @@ describe('Booking information', () => {
 
       expect(screen.getByTestId('formatted-date')).toHaveTextContent(
         '3rd July 2019'
+      );
+    });
+
+    it('should display multiple day duration', () => {
+      render(<Card hotel={testHotel} booking={testBooking} />);
+
+      expect(screen.getByTestId('formatted-duration').textContent).toBe(
+        '2 days'
+      );
+    });
+
+    it('should display single day duration', () => {
+      const bookingWithSingleDayDuration: Booking = {
+        ...testBooking,
+        durationInDays: 1,
+      };
+
+      render(<Card hotel={testHotel} booking={bookingWithSingleDayDuration} />);
+
+      expect(screen.getByTestId('formatted-duration').textContent).toBe(
+        '1 day'
       );
     });
   });

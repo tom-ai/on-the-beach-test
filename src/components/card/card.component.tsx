@@ -41,15 +41,19 @@ export default function Card({ hotel, booking }: CardProps) {
           {booking.numInfants > 1 && 's'}
         </p>
       )}
-      <p>
-        <strong data-testid="formatted-date">
-          {ordinal(booking.date.getDay())}{' '}
-          {booking.date.toLocaleDateString('en-gb', {
-            year: 'numeric',
-            month: 'long',
-          })}
-        </strong>
-      </p>
+
+      <time data-testid="formatted-date" dateTime={booking.date.toISOString()}>
+        {ordinal(booking.date.getDay())}{' '}
+        {booking.date.toLocaleDateString('en-gb', {
+          year: 'numeric',
+          month: 'long',
+        })}
+      </time>
+      <time data-testid="formatted-duration">
+        {booking.durationInDays} day{booking.durationInDays > 1 && 's'}
+      </time>
+
+      <p>days</p>
       <h3>Overview</h3>
       <p>{hotel.overview}</p>
     </>
