@@ -23,8 +23,9 @@ export default function Card({ hotel, booking }: CardProps) {
           </li>
         ))}
       </ul>
-      <p>
-        <strong>{booking.numAdults}</strong> Adults
+      <p id="adults">
+        <strong aria-labelledby="adults">{booking.numAdults}</strong>Adult
+        {booking.numAdults > 1 && 's'}
       </p>
       <p>
         <strong>{booking.numChildren}</strong> Children
