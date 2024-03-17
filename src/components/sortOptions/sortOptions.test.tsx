@@ -20,8 +20,8 @@ describe('Sort Options', () => {
     expect(priceOption).toBeVisible();
   });
 
-  it('should by default be checked by alphabet', () => {
-    const alphabeticalOption = screen.getByLabelText('Sort alphabetically');
-    expect(alphabeticalOption).toBeChecked();
+  it('should not have any options checked by default', () => {
+    const options = screen.getAllByRole('radio');
+    options.forEach((option) => expect(option).not.toBeChecked());
   });
 });
