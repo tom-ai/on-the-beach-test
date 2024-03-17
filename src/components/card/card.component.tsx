@@ -52,8 +52,14 @@ export default function Card({ hotel, booking }: CardProps) {
       <time data-testid="formatted-duration">
         {booking.durationInDays} day{booking.durationInDays > 1 && 's'}
       </time>
-
       <p>days</p>
+      <p id="departing-from">
+        departing from
+        <strong aria-labelledby="departing-from">
+          {booking.departingFrom}
+        </strong>
+      </p>
+
       <h3>Overview</h3>
       <p>{hotel.overview}</p>
     </>
