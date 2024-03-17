@@ -19,4 +19,9 @@ describe('Sort Options', () => {
     const priceOption = screen.getByLabelText('Sort by star rating');
     expect(priceOption).toBeVisible();
   });
+
+  it('should by default be checked by alphabet', () => {
+    const alphabeticalOption = screen.getByLabelText('Sort alphabetically');
+    expect(alphabeticalOption).toBeChecked();
+  });
 });

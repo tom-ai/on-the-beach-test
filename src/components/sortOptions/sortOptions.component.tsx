@@ -2,7 +2,13 @@ export default function SortOptions() {
   return (
     <>
       <h1>Sort</h1>
-      <input type="radio" id="alphabetical" value="alphabetical" name="sort" />
+      <input
+        type="radio"
+        id="alphabetical"
+        value="alphabetical"
+        name="sort"
+        defaultChecked
+      />
       <label htmlFor="alphabetical">
         Sort <strong>alphabetically</strong>
       </label>
