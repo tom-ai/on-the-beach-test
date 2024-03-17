@@ -196,7 +196,7 @@ describe('Booking information', () => {
       priceInPence: 250099,
     };
 
-    it('should display a formatted date', () => {
+    it('should display a date formatted with ordinals', () => {
       render(<Card hotel={testHotel} booking={testBooking} />);
 
       expect(screen.getByTestId('formatted-date')).toHaveTextContent(

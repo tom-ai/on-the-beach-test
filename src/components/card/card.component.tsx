@@ -1,4 +1,5 @@
 import { Hotel, Booking } from '../../types';
+import ordinal from 'ordinal';
 
 type CardProps = {
   hotel: Hotel;
@@ -41,11 +42,11 @@ export default function Card({ hotel, booking }: CardProps) {
         </p>
       )}
       <p>
-        <strong data-testid>
+        <strong data-testid="formatted-date">
+          {ordinal(booking.date.getDay())}{' '}
           {booking.date.toLocaleDateString('en-gb', {
             year: 'numeric',
             month: 'long',
-            day: 'numeric',
           })}
         </strong>
       </p>
