@@ -223,6 +223,7 @@ describe('Booking information', () => {
       starRating: 2,
       overview:
         'Welcome to the luxurious Azure Oasis Hotel, where dreams meet reality. Nestled amidst the rolling hills of nowhere, our hotel offers unparalleled tranquility and serenity. Enjoy our non-existent spa treatments and indulge in our imaginary gourmet cuisine, all while basking in the warmth of our nonexistent sunsets.',
+      imageAltText: 'Costa del Test hotel',
     };
 
     const testBooking: Booking = {
