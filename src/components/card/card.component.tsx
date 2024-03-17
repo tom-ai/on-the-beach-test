@@ -40,6 +40,15 @@ export default function Card({ hotel, booking }: CardProps) {
           {booking.numInfants > 1 && 's'}
         </p>
       )}
+      <p>
+        <strong data-testid>
+          {booking.date.toLocaleDateString('en-gb', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}
+        </strong>
+      </p>
       <h3>Overview</h3>
       <p>{hotel.overview}</p>
     </>

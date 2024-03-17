@@ -68,111 +68,140 @@ describe('Hotel information', () => {
 });
 
 describe('Booking information', () => {
-  const testHotel: Hotel = {
-    hotelName: 'Hotel Testing',
-    hotelLocation: 'Costa del Test',
-    starRating: 2,
-    overview:
-      'Welcome to the luxurious Azure Oasis Hotel, where dreams meet reality. Nestled amidst the rolling hills of nowhere, our hotel offers unparalleled tranquility and serenity. Enjoy our non-existent spa treatments and indulge in our imaginary gourmet cuisine, all while basking in the warmth of our nonexistent sunsets.',
-  };
-
-  const booking: Booking = {
-    numAdults: 2,
-    numChildren: 2,
-    numInfants: 2,
-    date: new Date(2019, 6, 3),
-    durationInDays: 7,
-    departingFrom: 'Test Station',
-    priceInPence: 250099,
-  };
-
-  // Help from: https://medium.com/p/60ea41843961
-  it('should display single adult', () => {
-    const bookingWithSingleAdult: Booking = {
-      ...booking,
-      numAdults: 1,
-    };
-    render(<Card hotel={testHotel} booking={bookingWithSingleAdult} />);
-
-    expect(screen.getByLabelText(/Adult/)).toHaveTextContent('1');
-  });
-
-  it('should display multiple adults', () => {
-    const bookingWithMultipleAdults: Booking = {
-      ...booking,
-      numAdults: 4,
+  describe('Guest details', () => {
+    const testHotel: Hotel = {
+      hotelName: 'Hotel Testing',
+      hotelLocation: 'Costa del Test',
+      starRating: 2,
+      overview:
+        'Welcome to the luxurious Azure Oasis Hotel, where dreams meet reality. Nestled amidst the rolling hills of nowhere, our hotel offers unparalleled tranquility and serenity. Enjoy our non-existent spa treatments and indulge in our imaginary gourmet cuisine, all while basking in the warmth of our nonexistent sunsets.',
     };
 
-    render(<Card hotel={testHotel} booking={bookingWithMultipleAdults} />);
-
-    expect(screen.getByLabelText(/Adults/)).toHaveTextContent('4');
-  });
-
-  it('should display single child', () => {
-    const bookingWithSingleChild: Booking = {
-      ...booking,
-      numChildren: 1,
+    const booking: Booking = {
+      numAdults: 2,
+      numChildren: 2,
+      numInfants: 2,
+      date: new Date(2019, 6, 3),
+      durationInDays: 7,
+      departingFrom: 'Test Station',
+      priceInPence: 250099,
     };
 
-    render(<Card hotel={testHotel} booking={bookingWithSingleChild} />);
+    // Help from: https://medium.com/p/60ea41843961
+    it('should display single adult', () => {
+      const bookingWithSingleAdult: Booking = {
+        ...booking,
+        numAdults: 1,
+      };
+      render(<Card hotel={testHotel} booking={bookingWithSingleAdult} />);
 
-    expect(screen.getByLabelText(/Child/)).toHaveTextContent('1');
+      expect(screen.getByLabelText(/Adult/)).toHaveTextContent('1');
+    });
+
+    it('should display multiple adults', () => {
+      const bookingWithMultipleAdults: Booking = {
+        ...booking,
+        numAdults: 4,
+      };
+
+      render(<Card hotel={testHotel} booking={bookingWithMultipleAdults} />);
+
+      expect(screen.getByLabelText(/Adults/)).toHaveTextContent('4');
+    });
+
+    it('should display single child', () => {
+      const bookingWithSingleChild: Booking = {
+        ...booking,
+        numChildren: 1,
+      };
+
+      render(<Card hotel={testHotel} booking={bookingWithSingleChild} />);
+
+      expect(screen.getByLabelText(/Child/)).toHaveTextContent('1');
+    });
+
+    it('should display multiple children', () => {
+      const bookingWithMultipleChildren: Booking = {
+        ...booking,
+        numChildren: 3,
+      };
+
+      render(<Card hotel={testHotel} booking={bookingWithMultipleChildren} />);
+
+      expect(screen.getByLabelText(/Children/)).toHaveTextContent('3');
+    });
+
+    it('should display single infant', () => {
+      const bookingWithSingleInfant: Booking = {
+        ...booking,
+        numInfants: 1,
+      };
+
+      render(<Card hotel={testHotel} booking={bookingWithSingleInfant} />);
+
+      expect(screen.getByLabelText(/Infant/)).toHaveTextContent('1');
+    });
+
+    it('should display multiple infants', () => {
+      const bookingWithMultipleInfants: Booking = {
+        ...booking,
+        numInfants: 3,
+      };
+
+      render(<Card hotel={testHotel} booking={bookingWithMultipleInfants} />);
+
+      expect(screen.getByLabelText(/Infants/)).toHaveTextContent('3');
+    });
+
+    it('should not display zero children', () => {
+      const bookingWithZeroChildren: Booking = {
+        ...booking,
+        numChildren: 0,
+      };
+
+      render(<Card hotel={testHotel} booking={bookingWithZeroChildren} />);
+
+      expect(screen.queryByLabelText(/Child/)).not.toBeInTheDocument();
+      expect(screen.queryByLabelText(/Children/)).not.toBeInTheDocument();
+    });
+
+    it('should not display zero infants', () => {
+      const bookingWithZeroInfants: Booking = {
+        ...booking,
+        numInfants: 0,
+      };
+
+      render(<Card hotel={testHotel} booking={bookingWithZeroInfants} />);
+
+      expect(screen.queryByLabelText(/Infant/)).not.toBeInTheDocument();
+      expect(screen.queryByLabelText(/Infants/)).not.toBeInTheDocument();
+    });
   });
-
-  it('should display multiple children', () => {
-    const bookingWithMultipleChildren: Booking = {
-      ...booking,
-      numChildren: 3,
+  describe('Duration details', () => {
+    const testHotel: Hotel = {
+      hotelName: 'Hotel Testing',
+      hotelLocation: 'Costa del Test',
+      starRating: 2,
+      overview:
+        'Welcome to the luxurious Azure Oasis Hotel, where dreams meet reality. Nestled amidst the rolling hills of nowhere, our hotel offers unparalleled tranquility and serenity. Enjoy our non-existent spa treatments and indulge in our imaginary gourmet cuisine, all while basking in the warmth of our nonexistent sunsets.',
     };
 
-    render(<Card hotel={testHotel} booking={bookingWithMultipleChildren} />);
-
-    expect(screen.getByLabelText(/Children/)).toHaveTextContent('3');
-  });
-
-  it('should display single infant', () => {
-    const bookingWithSingleInfant: Booking = {
-      ...booking,
-      numInfants: 1,
-    };
-
-    render(<Card hotel={testHotel} booking={bookingWithSingleInfant} />);
-
-    expect(screen.getByLabelText(/Infant/)).toHaveTextContent('1');
-  });
-
-  it('should display multiple infants', () => {
-    const bookingWithMultipleInfants: Booking = {
-      ...booking,
-      numInfants: 3,
-    };
-
-    render(<Card hotel={testHotel} booking={bookingWithMultipleInfants} />);
-
-    expect(screen.getByLabelText(/Infants/)).toHaveTextContent('3');
-  });
-
-  it('should not display zero children', () => {
-    const bookingWithZeroChildren: Booking = {
-      ...booking,
+    const testBooking: Booking = {
+      numAdults: 2,
       numChildren: 0,
-    };
-
-    render(<Card hotel={testHotel} booking={bookingWithZeroChildren} />);
-
-    expect(screen.queryByLabelText(/Child/)).not.toBeInTheDocument();
-    expect(screen.queryByLabelText(/Children/)).not.toBeInTheDocument();
-  });
-
-  it('should not display zero infants', () => {
-    const bookingWithZeroInfants: Booking = {
-      ...booking,
       numInfants: 0,
+      date: new Date(2019, 6, 3),
+      durationInDays: 7,
+      departingFrom: 'Test Station',
+      priceInPence: 250099,
     };
 
-    render(<Card hotel={testHotel} booking={bookingWithZeroInfants} />);
+    it('should display a formatted date', () => {
+      render(<Card hotel={testHotel} booking={testBooking} />);
 
-    expect(screen.queryByLabelText(/Infant/)).not.toBeInTheDocument();
-    expect(screen.queryByLabelText(/Infants/)).not.toBeInTheDocument();
+      expect(screen.getByTestId('formatted-date')).toHaveTextContent(
+        '3rd July 2019'
+      );
+    });
   });
 });
