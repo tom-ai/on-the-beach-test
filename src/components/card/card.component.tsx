@@ -11,6 +11,7 @@ export default function Card({ hotel, booking }: CardProps) {
   const [overviewHidden, setOverviewHidden] = useState(true);
   return (
     <>
+      <img alt={hotel.imageAltText} />
       <h2>{hotel.hotelName}</h2>
       <p>{hotel.hotelLocation}</p>
       <ul>
