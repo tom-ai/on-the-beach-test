@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import Card from './card.component';
 import { Booking, Hotel } from '../../types';
 
@@ -25,45 +25,80 @@ describe('Hotel information', () => {
     render(<Card hotel={testHotel} booking={testBooking} />);
   });
 
-  it('should display hotel name with H2', () => {
-    const hotelName = screen.getByRole('heading', {
-      level: 2,
-      name: testHotel.hotelName,
+  describe('Hotel details', () => {
+    it('should display hotel name with H2', () => {
+      const hotelName = screen.getByRole('heading', {
+        level: 2,
+        name: testHotel.hotelName,
+      });
+
+      expect(hotelName).toBeVisible();
     });
 
-    expect(hotelName).toBeVisible();
-  });
+    it('should display hotel location next to the name', () => {
+      const hotelName = screen.getByRole('heading', {
+        level: 2,
+        name: testHotel.hotelName,
+      });
 
-  it('should display hotel location next to the name', () => {
-    const hotelName = screen.getByRole('heading', {
-      level: 2,
-      name: testHotel.hotelName,
+      const hotelLocation = hotelName.nextSibling;
+
+      expect(hotelLocation).toHaveTextContent(testHotel.hotelLocation);
     });
 
-    const hotelLocation = hotelName.nextSibling;
+    it('should display a number of star icons corresponding to the rating', () => {
+      const stars = screen.getAllByTestId('star-rating');
 
-    expect(hotelLocation).toHaveTextContent(testHotel.hotelLocation);
-  });
-
-  it('should display a number of star icons corresponding to the rating', () => {
-    const stars = screen.getAllByTestId('star-rating');
-
-    expect(stars).toHaveLength(2);
-  });
-
-  it('should display an overview heading with H3', () => {
-    const overviewHeading = screen.getByRole('heading', {
-      level: 3,
-      name: /overview/i,
+      expect(stars).toHaveLength(2);
     });
 
-    expect(overviewHeading).toBeVisible();
+    //image
   });
 
-  it('should display the overview text', () => {
-    const overview = screen.getByText(testHotel.overview);
+  describe('Overview details', () => {
+    it('should by default hide the overview information', () => {
+      const overviewHeading = screen.queryByRole('heading', {
+        name: /overview/i,
+      });
+      expect(overviewHeading).not.toBeInTheDocument();
+    });
 
-    expect(overview).toBeVisible();
+    it('should by default display a read more button', () => {
+      const overviewDisplayButton = screen.getByRole('button', {
+        name: /read more/i,
+      });
+
+      expect(overviewDisplayButton).toBeVisible();
+    });
+
+    describe('When toggling', () => {
+      it('should show and hide the overview information', () => {
+        const readMoreButton = screen.getByRole('button', {
+          name: /read more/i,
+        });
+
+        fireEvent.click(readMoreButton);
+        const overviewHeading = screen.getByRole('heading', {
+          level: 3,
+          name: /overview/i,
+        });
+
+        expect(overviewHeading).toBeVisible();
+        expect(screen.getByText(testHotel.overview)).toBeVisible();
+
+        const readLessButton = screen.getByRole('button', {
+          name: /read less/i,
+        });
+
+        fireEvent.click(readLessButton);
+
+        expect(
+          screen.queryByRole('heading', { level: 3, name: /overview/i })
+        ).not.toBeInTheDocument();
+
+        expect(screen.getByText(testHotel.overview)).not.toBeVisible();
+      });
+    });
   });
 });
 

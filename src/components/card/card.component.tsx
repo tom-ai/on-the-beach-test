@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Hotel, Booking } from '../../types';
 import ordinal from 'ordinal';
 
@@ -7,6 +8,7 @@ type CardProps = {
 };
 
 export default function Card({ hotel, booking }: CardProps) {
+  const [overviewHidden, setOverviewHidden] = useState(true);
   return (
     <>
       <h2>{hotel.hotelName}</h2>
@@ -69,8 +71,14 @@ export default function Card({ hotel, booking }: CardProps) {
         </strong>
       </button>
 
-      <h3>Overview</h3>
-      <p>{hotel.overview}</p>
+      <button onClick={() => setOverviewHidden((prev) => !prev)}>
+        <strong>Read {overviewHidden ? 'more' : 'less'}</strong> about this
+        hotel
+      </button>
+      <div hidden={overviewHidden}>
+        <h3>Overview</h3>
+        <p>{hotel.overview}</p>
+      </div>
     </>
   );
 }
