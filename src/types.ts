@@ -5,7 +5,7 @@ export type Booking = {
   date: Date;
   durationInDays: number;
   departingFrom: string;
-  priceInPence: number;
+  priceInPounds: number;
 };
 
 export type Hotel = {

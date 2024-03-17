@@ -59,6 +59,15 @@ export default function Card({ hotel, booking }: CardProps) {
           {booking.departingFrom}
         </strong>
       </p>
+      <button>
+        Book now{' '}
+        <strong>
+          {new Intl.NumberFormat('en-gb', {
+            style: 'currency',
+            currency: 'GBP',
+          }).format(booking.priceInPounds)}
+        </strong>
+      </button>
 
       <h3>Overview</h3>
       <p>{hotel.overview}</p>
