@@ -15,3 +15,8 @@ export type Hotel = {
   overview: string;
   imageAltText: string;
 };
+
+export type Product = {
+  hotel: Hotel;
+  booking: Booking;
+};
