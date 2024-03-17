@@ -27,8 +27,13 @@ export default function Card({ hotel, booking }: CardProps) {
         <strong aria-labelledby="adults">{booking.numAdults}</strong>Adult
         {booking.numAdults > 1 && 's'}
       </p>
-      <p>
-        <strong>{booking.numChildren}</strong> Children
+      <p id="children">
+        <strong aria-labelledby="children">{booking.numChildren}</strong> Child
+        {booking.numChildren > 1 && 'ren'}
+      </p>
+      <p id="infants">
+        <strong aria-labelledby="infants">{booking.numInfants}</strong> Infant
+        {booking.numInfants > 1 && 's'}
       </p>
       <h3>Overview</h3>
       <p>{hotel.overview}</p>

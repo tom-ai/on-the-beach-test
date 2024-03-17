@@ -96,7 +96,7 @@ describe('Booking information', () => {
     expect(screen.getByLabelText(/Adult/)).toHaveTextContent('1');
   });
 
-  it('(should display multiple adults)', () => {
+  it('should display multiple adults)', () => {
     const bookingWithMultipleAdults: Booking = {
       ...booking,
       numAdults: 4,
@@ -107,15 +107,47 @@ describe('Booking information', () => {
     expect(screen.getByLabelText(/Adults/)).toHaveTextContent('4');
   });
 
-  // it('should display number of children', () => {
-  //   const numOfChildren = screen.getByText((content) =>
-  //     content.startsWith('1')
-  //   );
+  it('should display single child', () => {
+    const bookingWithSingleChild: Booking = {
+      ...booking,
+      numChildren: 1,
+    };
 
-  //   expect(numOfChildren).toBeVisible();
-  //   expect(screen.getByText(/children/i));
-  // });
+    render(<Card hotel={testHotel} booking={bookingWithSingleChild} />);
 
-  // hummm hit a problem of brittle tests...
+    expect(screen.getByLabelText(/Child/)).toHaveTextContent('1');
+  });
+
+  it('should display multiple children', () => {
+    const bookingWithMultipleChildren: Booking = {
+      ...booking,
+      numChildren: 3,
+    };
+
+    render(<Card hotel={testHotel} booking={bookingWithMultipleChildren} />);
+
+    expect(screen.getByLabelText(/Children/)).toHaveTextContent('3');
+  });
+
+  it('should display single infant', () => {
+    const bookingWithSingleInfant: Booking = {
+      ...booking,
+      numInfants: 1,
+    };
+
+    render(<Card hotel={testHotel} booking={bookingWithSingleInfant} />);
+
+    expect(screen.getByLabelText(/Infant/)).toHaveTextContent('1');
+  });
+
+  it('should display multiple infants', () => {
+    const bookingWithMultipleInfants: Booking = {
+      ...booking,
+      numInfants: 3,
+    };
+
+    render(<Card hotel={testHotel} booking={bookingWithMultipleInfants} />);
+
+    expect(screen.getByLabelText(/Infants/)).toHaveTextContent('3');
+  });
 });
-
