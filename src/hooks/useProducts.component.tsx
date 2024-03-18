@@ -17,7 +17,7 @@ export default function useProducts(): Product[] {
       date: new Date(2019, 6, 3),
       durationInDays: 7,
       departingFrom: 'East Midlands',
-      priceInPounds: 1136.5,
+      priceInPounds: 2599.5,
     },
   };
 
@@ -37,7 +37,7 @@ export default function useProducts(): Product[] {
       date: new Date(2023, 8, 12),
       durationInDays: 7,
       departingFrom: 'Charles de Gaulle Airport',
-      priceInPounds: 3500.0,
+      priceInPounds: 1250.0,
     },
   };
 
@@ -57,7 +57,7 @@ export default function useProducts(): Product[] {
       date: new Date(2024, 5, 17),
       durationInDays: 10,
       departingFrom: 'Marco Polo Airport',
-      priceInPounds: 4500.0,
+      priceInPounds: 3999.0,
     },
   };
 
