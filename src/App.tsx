@@ -10,10 +10,14 @@ function App() {
     setSortOption(newSortOption);
   };
 
+  const sortOptions: SortOption[] = ['alphabetical', 'price', 'star-rating'];
+
   return (
     <>
       <SortOptions
         sortOption={sortOption}
+        sortOptions={sortOptions}
+        // sortOption={sortOption}
         handleSortOptionChange={handleSortOptionChange}
       />
       <ResultsList sortOption={sortOption} />
