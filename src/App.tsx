@@ -16,15 +16,17 @@ function App() {
   const products: Product[] = useProducts();
 
   return (
-    <>
+    <main className="container mx-auto grid grid-cols-3 gap-12 p-12">
       <SortOptions
         sortOption={sortOption}
         sortOptions={sortOptions}
         // sortOption={sortOption}
         handleSortOptionChange={handleSortOptionChange}
       />
-      <ResultsList sortOption={sortOption} products={products} />
-    </>
+      <div className="col-span-2">
+        <ResultsList sortOption={sortOption} products={products} />
+      </div>
+    </main>
   );
 }
 

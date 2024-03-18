@@ -29,13 +29,15 @@ export default function ResultsList({
     );
   }
 
-  return sortProducts(products, sortOption).map((product: Product, i) => {
-    return (
-      <Card
-        key={`hotel-${i}`}
-        hotel={product.hotel}
-        booking={product.booking}
-      />
-    );
-  });
+  return (
+    <section className="flex flex-col gap-6">
+      {sortProducts(products, sortOption).map((product: Product, i) => (
+        <Card
+          key={`hotel-${i}`}
+          hotel={product.hotel}
+          booking={product.booking}
+        />
+      ))}
+    </section>
+  );
 }

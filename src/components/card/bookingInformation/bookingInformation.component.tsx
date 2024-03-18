@@ -9,8 +9,8 @@ export default function BookingInformation({
   booking,
 }: BookingInformationProps) {
   return (
-    <div>
-      <p>
+    <div className="my-4 text-xs text-gray-700">
+      <p className="mb-1">
         <span id="adults">
           <strong aria-labelledby="adults">{booking.numAdults}</strong> Adult
           {booking.numAdults > 1 && 's'}
@@ -38,7 +38,7 @@ export default function BookingInformation({
           </span>
         )}
       </p>
-      <p>
+      <p className="mb-1">
         <time
           data-testid="formatted-date"
           dateTime={booking.date.toISOString()}
