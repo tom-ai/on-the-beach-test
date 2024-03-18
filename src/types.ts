@@ -20,3 +20,5 @@ export type Product = {
   hotel: Hotel;
   booking: Booking;
 };
+
+export type SortOption = 'alphabetical' | 'price' | 'star-rating';
