@@ -12,7 +12,7 @@ describe('App tests', () => {
         a.hotel.hotelName.localeCompare(b.hotel.hotelName)
       );
 
-      const alphabeticalOption = screen.getByLabelText('Sort alphabetically');
+      const alphabeticalOption = screen.getByLabelText(/sort alphabetically/i);
 
       fireEvent.click(alphabeticalOption);
 
@@ -38,7 +38,7 @@ describe('App tests', () => {
           a.booking.priceInPounds - b.booking.priceInPounds
       );
 
-      const priceOption = screen.getByLabelText('Sort by price');
+      const priceOption = screen.getByLabelText(/sort by price/i);
 
       fireEvent.click(priceOption);
 

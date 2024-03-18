@@ -17,17 +17,17 @@ describe('Sort Options', () => {
   });
 
   it('should render an option for sorting alphabetically', () => {
-    const alphabeticalOption = screen.getByLabelText('Sort alphabetically');
+    const alphabeticalOption = screen.getByLabelText(/sort alphabetically/i);
     expect(alphabeticalOption).toBeVisible();
   });
 
   it('should render an option for sorting by price', () => {
-    const priceOption = screen.getByLabelText('Sort by price');
+    const priceOption = screen.getByLabelText(/sort by price/i);
     expect(priceOption).toBeVisible();
   });
 
   it('should render an option for sorting by star rating', () => {
-    const priceOption = screen.getByLabelText('Sort by star rating');
+    const priceOption = screen.getByLabelText(/sort by star rating/i);
     expect(priceOption).toBeVisible();
   });
 });
