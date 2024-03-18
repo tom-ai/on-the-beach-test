@@ -1,27 +1,35 @@
-import useProducts from '../../hooks/useProducts.component';
 import { Product, SortOption } from '../../types';
 import Card from '../card/card.component';
 
 type ResultsListProps = {
-  sortOption: SortOption;
+  sortOption?: SortOption;
+  products: Product[];
 };
 
 export default function ResultsList({
   sortOption = 'price',
+  products,
 }: ResultsListProps) {
-  const products: Product[] = useProducts();
+  function sortProducts(
+    products: Product[],
+    sortOption: SortOption
+  ): Product[] {
+    if (sortOption === 'alphabetical') {
+      return products.sort((a: Product, b: Product) =>
+        a.hotel.hotelName.localeCompare(b.hotel.hotelName)
+      );
+    } else if (sortOption === 'price') {
+      return products.sort(
+        (a: Product, b: Product) =>
+          a.booking.priceInPounds - b.booking.priceInPounds
+      );
+    } else sortOption === 'star-rating';
+    return products.sort(
+      (a: Product, b: Product) => a.hotel.starRating + b.hotel.starRating
+    );
+  }
 
-  const sortedProducts =
-    sortOption === 'price'
-      ? products.sort(
-          (a: Product, b: Product) =>
-            a.booking.priceInPounds - b.booking.priceInPounds
-        )
-      : products.sort((a: Product, b: Product) =>
-          a.hotel.hotelName.localeCompare(b.hotel.hotelName)
-        );
-
-  return sortedProducts.map((product: Product, i) => {
+  return sortProducts(products, sortOption).map((product: Product, i) => {
     return (
       <Card
         key={`hotel-${i}`}
