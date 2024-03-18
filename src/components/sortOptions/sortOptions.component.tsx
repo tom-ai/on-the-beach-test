@@ -22,6 +22,7 @@ export default function SortOptions({
             id={option}
             value={option}
             name="sort"
+            defaultChecked={option === 'price'}
           />
           <label htmlFor={option}>
             {option === 'alphabetical' && 'Sort alphabetically'}

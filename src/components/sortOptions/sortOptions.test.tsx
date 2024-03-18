@@ -30,9 +30,4 @@ describe('Sort Options', () => {
     const priceOption = screen.getByLabelText('Sort by star rating');
     expect(priceOption).toBeVisible();
   });
-
-  it('should not have any options checked by default', () => {
-    const options = screen.getAllByRole('radio');
-    options.forEach((option) => expect(option).not.toBeChecked());
-  });
 });

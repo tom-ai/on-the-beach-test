@@ -1,5 +1,6 @@
 import { Product } from '../types';
 
+
 export default function useProducts(): Product[] {
   const hotelA: Product = {
     hotel: {
