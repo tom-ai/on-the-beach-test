@@ -1,7 +1,8 @@
 import ResultsList from './components/resultsList/resultsList.component';
 import SortOptions from './components/sortOptions/sortOptions.component';
 import { useState } from 'react';
-import { SortOption } from './types';
+import { Product, SortOption } from './types';
+import useProducts from './hooks/useProducts.component';
 
 function App() {
   const [sortOption, setSortOption] = useState<SortOption>('price');
@@ -12,6 +13,8 @@ function App() {
 
   const sortOptions: SortOption[] = ['alphabetical', 'price', 'star-rating'];
 
+  const products: Product[] = useProducts();
+
   return (
     <>
       <SortOptions
@@ -20,7 +23,7 @@ function App() {
         // sortOption={sortOption}
         handleSortOptionChange={handleSortOptionChange}
       />
-      <ResultsList sortOption={sortOption} />
+      <ResultsList sortOption={sortOption} products={products} />
     </>
   );
 }
