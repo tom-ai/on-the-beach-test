@@ -35,7 +35,7 @@ export default function SortOptions({
             } block`}
           >
             {option === 'alphabetical' && (
-              <div className="flex justify-between items-center">
+              <div className="flex flex-wrap justify-between items-center">
                 <span>
                   sort <strong> alphabetically</strong>
                 </span>
@@ -44,7 +44,7 @@ export default function SortOptions({
                   viewBox="0 0 576 512"
                   width="16px"
                   height="16px"
-                  className={`inline-block  ${
+                  className={`${
                     option === sortOption ? 'fill-white' : 'fill-gray-400'
                   }`}
                 >
@@ -53,7 +53,7 @@ export default function SortOptions({
               </div>
             )}
             {option === 'price' && (
-              <div className="flex justify-between items-center">
+              <div className="flex flex-wrap justify-between items-center">
                 <span>
                   sort by <strong>price</strong>
                 </span>
@@ -62,7 +62,7 @@ export default function SortOptions({
                   viewBox="0 0 320 512"
                   width="16px"
                   height="16px"
-                  className={`inline-block  ${
+                  className={`${
                     option === sortOption ? 'fill-white' : 'fill-gray-400'
                   }`}
                 >
@@ -71,7 +71,7 @@ export default function SortOptions({
               </div>
             )}
             {option === 'star-rating' && (
-              <div className="flex justify-between items-center">
+              <div className="flex flex-wrap justify-between items-center">
                 <span>
                   sort by <strong>star rating</strong>
                 </span>
@@ -80,7 +80,7 @@ export default function SortOptions({
                   viewBox="0 0 576 512"
                   width="16px"
                   height="16px"
-                  className={`inline-block  ${
+                  className={`${
                     option === sortOption ? 'fill-white' : 'fill-gray-400'
                   }`}
                 >

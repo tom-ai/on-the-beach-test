@@ -59,7 +59,7 @@ export default function Card({ hotel, booking }: CardProps) {
               {hotel.hotelName}
             </h2>
             <p className="text-gray-400 text-sm mb-2">{hotel.hotelLocation}</p>
-            <ul className="flex gap-1">
+            <ul className="flex flex-wrap gap-1">
               {[...Array(hotel.starRating)].map((_star, i) => (
                 <li key={i}>
                   <svg
