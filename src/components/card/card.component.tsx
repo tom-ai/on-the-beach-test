@@ -25,7 +25,7 @@ export default function Card({ hotel, booking }: CardProps) {
   const hotelImage = hotelImages[hotel.hotelName];
 
   return (
-    <article className="bg-slate-200">
+    <article className="bg-white">
       <div className="relative">
         <div className="grid grid-cols-3">
           <img
