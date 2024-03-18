@@ -10,23 +10,34 @@ export default function BookingInformation({
 }: BookingInformationProps) {
   return (
     <div>
-      <p id="adults">
-        <strong aria-labelledby="adults">{booking.numAdults}</strong> Adult
-        {booking.numAdults > 1 && 's'}
+      <p>
+        <span id="adults">
+          <strong aria-labelledby="adults">{booking.numAdults}</strong> Adult
+          {booking.numAdults > 1 && 's'}
+        </span>
+
+        {booking.numChildren > 0 && (
+          <span id="children">
+            {', '}
+            <strong aria-labelledby="children">
+              {booking.numChildren}
+            </strong>{' '}
+            Child
+            {booking.numChildren > 1 && 'ren'}
+          </span>
+        )}
+
+        {booking.numInfants > 0 && (
+          <span id="infants">
+            {' '}
+            & <strong aria-labelledby="infants">
+              {booking.numInfants}
+            </strong>{' '}
+            Infant
+            {booking.numInfants > 1 && 's'}
+          </span>
+        )}
       </p>
-      {booking.numChildren > 0 && (
-        <p id="children">
-          <strong aria-labelledby="children">{booking.numChildren}</strong>{' '}
-          Child
-          {booking.numChildren > 1 && 'ren'}
-        </p>
-      )}
-      {booking.numInfants > 0 && (
-        <p id="infants">
-          <strong aria-labelledby="infants">{booking.numInfants}</strong> Infant
-          {booking.numInfants > 1 && 's'}
-        </p>
-      )}
       <p>
         <time
           data-testid="formatted-date"
