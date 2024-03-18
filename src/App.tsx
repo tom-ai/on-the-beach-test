@@ -16,7 +16,7 @@ function App() {
   const products: Product[] = useProducts();
 
   return (
-    <main className="container mx-auto grid grid-cols-3 gap-12 p-12">
+    <main className="max-w-screen-xl mx-auto grid grid-cols-3 gap-12 p-12">
       <SortOptions
         sortOption={sortOption}
         sortOptions={sortOptions}

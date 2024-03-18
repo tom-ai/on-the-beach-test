@@ -25,11 +25,15 @@ export default function Card({ hotel, booking }: CardProps) {
   const hotelImage = hotelImages[hotel.hotelName];
 
   return (
-    <article className="">
-      <div className="flex">
-        <img src={hotelImage} alt={hotel.imageAltText} />
+    <article className="bg-slate-200">
+      <div className="grid grid-cols-3">
+        <img
+          src={hotelImage}
+          alt={hotel.imageAltText}
+          className="col-span-2 w-full"
+        />
         <div className="p-4">
-          <h2 className="text-lg font-bold text-blue-900">{hotel.hotelName}</h2>
+          <h2 className="text-md font-bold text-blue-900">{hotel.hotelName}</h2>
           <p className="text-gray-400 text-sm mb-2">{hotel.hotelLocation}</p>
           <ul className="flex gap-1">
             {[...Array(hotel.starRating)].map((_star, i) => (
@@ -53,13 +57,13 @@ export default function Card({ hotel, booking }: CardProps) {
       </div>
       <button
         onClick={() => setOverviewHidden((prev) => !prev)}
-        className="text-sm"
+        className="text-sm text-blue-900 bg-white px-4 py-2"
       >
         <strong>Read {overviewHidden ? 'more' : 'less'}</strong> about this
         hotel
       </button>
-      <div hidden={overviewHidden}>
-        <h3 className="font-bold text-sm my-3">Overview</h3>
+      <div hidden={overviewHidden} className="pl-4">
+        <h3 className="font-bold text-sm my-3 text-blue-900">Overview</h3>
         <p className="text-sm text-gray-700">{hotel.overview}</p>
       </div>
     </article>

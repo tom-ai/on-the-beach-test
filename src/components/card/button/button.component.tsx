@@ -6,7 +6,7 @@ type ButtonProps = {
 
 export default function Button({ booking }: ButtonProps) {
   return (
-    <button className="bg-yellow-400 py-3 px-8 text-blue-900 flex flex-col items-center min-w-64">
+    <button className="bg-yellow-400 py-3 px-8 text-blue-900 flex flex-col items-center w-full">
       <span className="text-xs font-bold">Book now</span>
       <strong className="text-xl">
         {new Intl.NumberFormat('en-gb', {
