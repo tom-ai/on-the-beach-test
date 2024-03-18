@@ -27,7 +27,7 @@ export default function Card({ hotel, booking }: CardProps) {
   return (
     <article>
       <img src={hotelImage} alt={hotel.imageAltText} />
-      <h2>{hotel.hotelName}</h2>
+      <h2 className="text-3xl">{hotel.hotelName}</h2>
       <p>{hotel.hotelLocation}</p>
       <ul>
         {[...Array(hotel.starRating)].map((_star, i) => (
