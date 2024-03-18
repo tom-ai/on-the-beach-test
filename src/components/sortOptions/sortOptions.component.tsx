@@ -1,45 +1,35 @@
 import { SortOption } from '../../types';
 
 type SortOptionsProps = {
+  sortOptions: SortOption[];
   sortOption: SortOption;
   handleSortOptionChange: (a: SortOption) => void;
 };
 
 export default function SortOptions({
-  sortOption = 'price', // why this if it's inital state is 'price'
+  sortOptions,
   handleSortOptionChange,
 }: SortOptionsProps) {
-  // needs to return a sort state
-
-  const sortOptions: SortOption[] = ['alphabetical', 'price', 'star-rating'];
-
-  sortOptions.map(() => {
-    return (
-      <>
-        <input
-          onChange={(e) => {
-            const value = e.target.value;
-            if (
-              value === 'alphabetical' ||
-              value === 'price' ||
-              value === 'star-rating'
-            ) {
-              handleSortOptionChange(value as SortOption);
-            }
-          }}
-          type="radio"
-          id={sortOption}
-          value={sortOption}
-          name="sort"
-        />
-        <label htmlFor={sortOption}>
-          {sortOption === 'alphabetical' &&
-            `Sort ${(<strong>alphabetically</strong>)}`}
-          {sortOption === 'price' && `Sort by ${(<strong>price</strong>)}`}
-          {sortOption === 'star-rating' &&
-            `Sort by ${(<strong>star rating</strong>)}`}
-        </label>
-      </>
-    );
-  });
+  return (
+    <ul>
+      {sortOptions.map((option: SortOption) => (
+        <li>
+          <input
+            onChange={(e) => {
+              handleSortOptionChange(e.target.value as SortOption);
+            }}
+            type="radio"
+            id={option}
+            value={option}
+            name="sort"
+          />
+          <label htmlFor={option}>
+            {option === 'alphabetical' && 'Sort alphabetically'}
+            {option === 'price' && `Sort by price`}
+            {option === 'star-rating' && `Sort by star rating`}
+          </label>
+        </li>
+      ))}
+    </ul>
+  );
 }

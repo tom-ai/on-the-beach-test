@@ -1,10 +1,21 @@
 import { render, screen } from '@testing-library/react';
 import SortOptions from './sortOptions.component';
+import { SortOption } from '../../types';
 
 describe('Sort Options', () => {
   beforeEach(() => {
-    render(<SortOptions />);
+    const handleSortOptionChange = vitest.fn();
+    const sortOptions: SortOption[] = ['alphabetical', 'price', 'star-rating'];
+
+    render(
+      <SortOptions
+        sortOption={sortOptions[0]}
+        sortOptions={sortOptions}
+        handleSortOptionChange={handleSortOptionChange}
+      />
+    );
   });
+
   it('should render an option for sorting alphabetically', () => {
     const alphabeticalOption = screen.getByLabelText('Sort alphabetically');
     expect(alphabeticalOption).toBeVisible();
