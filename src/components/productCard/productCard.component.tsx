@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Hotel, Booking } from '../../types';
-
 import BookingInformation from './bookingInformation/bookingInformation.component';
 import Button from './button/button.component';
 
@@ -14,9 +13,9 @@ import hotelImage2 from '../../assets/hotel-image-2.png';
 import hotelImage3 from '../../assets/hotel-image-3.png';
 
 const hotelImages: { [key: string]: string } = {
-  'Iberostar Grand Salome': hotelImage1,
-  'Hotel de Crillon': hotelImage2,
-  'Hotel Danieli': hotelImage3,
+  'Gran Hotel Miramar': hotelImage1,
+  'Palacio de la Marquesa': hotelImage2,
+  'Hotel Maria Cristina': hotelImage3,
 };
 
 export default function ProductCard({ hotel, booking }: CardProps) {

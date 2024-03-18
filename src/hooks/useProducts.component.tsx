@@ -3,61 +3,61 @@ import { Product } from '../types';
 export default function useProducts(): Product[] {
   const hotelA: Product = {
     hotel: {
-      hotelName: 'Iberostar Grand Salome',
-      hotelLocation: 'Costa Adeje, Tenerife',
+      hotelName: 'Gran Hotel Miramar',
+      hotelLocation: 'Malaga, Spain',
       starRating: 5,
-      imageAltText: 'Iberostar Grand Salome hotel',
+      imageAltText: 'Gran Hotel Miramar',
       overview:
-        'The Iberostar Grand Salome has an exceptional location in the south of Tenerife, overlooking the Atlantic Ocean. It is situated between the Golf del Sur and the Amarillo Golf courses, and is an ideal hotel for families, couples and groups who are looking for a holiday full of sport, sun and sea.',
+        'Overlooking the Mediterranean Sea, the Gran Hotel Miramar is a luxurious beachfront resort in the heart of Malaga. With its stunning architecture, world-class amenities, and impeccable service, it offers an unforgettable stay in the vibrant city of Malaga.',
     },
     booking: {
       numAdults: 2,
-      numChildren: 2,
+      numChildren: 3,
       numInfants: 1,
-      date: new Date(2019, 6, 3),
-      durationInDays: 7,
-      departingFrom: 'East Midlands',
-      priceInPounds: 2599.5,
+      date: new Date(2024, 7, 15),
+      durationInDays: 10,
+      departingFrom: 'London Gatwick Airport',
+      priceInPounds: 2200.0,
     },
   };
 
   const hotelB: Product = {
     hotel: {
-      hotelName: 'Hotel de Crillon',
-      hotelLocation: 'Paris, France',
+      hotelName: 'Palacio de la Marquesa',
+      hotelLocation: 'Seville, Spain',
       starRating: 4,
-      imageAltText: 'Hotel de Crillon',
+      imageAltText: 'Palacio de la Marquesa',
       overview:
-        'Located on Place de la Concorde, Hotel de Crillon offers luxurious accommodations and stunning views of Paris landmarks. With its historic charm and modern amenities, it provides an unforgettable experience for guests.',
-    },
-    booking: {
-      numAdults: 1,
-      numChildren: 0,
-      numInfants: 0,
-      date: new Date(2023, 8, 12),
-      durationInDays: 7,
-      departingFrom: 'Charles de Gaulle Airport',
-      priceInPounds: 1250.0,
-    },
-  };
-
-  const hotelC: Product = {
-    hotel: {
-      hotelName: 'Hotel Danieli',
-      hotelLocation: 'Venice, Italy',
-      starRating: 2,
-      imageAltText: 'Hotel Danieli Venice',
-      overview:
-        'Overlooking the Grand Canal, Hotel Danieli is a landmark of Venetian luxury. With its exquisite décor and panoramic views, it offers an enchanting escape in the heart of Venice.',
+        'Housed in a beautifully restored 16th-century palace, the Palacio de la Marquesa is a boutique hotel that seamlessly blends historic charm with modern comforts. Located in the heart of Seville, it offers an unparalleled experience of Andalusian hospitality and culture.',
     },
     booking: {
       numAdults: 4,
       numChildren: 1,
       numInfants: 2,
-      date: new Date(2024, 5, 17),
-      durationInDays: 10,
-      departingFrom: 'Marco Polo Airport',
-      priceInPounds: 3999.0,
+      date: new Date(2023, 9, 2),
+      durationInDays: 7,
+      departingFrom: 'Manchester Airport',
+      priceInPounds: 3500.0,
+    },
+  };
+
+  const hotelC: Product = {
+    hotel: {
+      hotelName: 'Hotel Maria Cristina',
+      hotelLocation: 'San Sebastian, Spain',
+      starRating: 5,
+      imageAltText: 'Hotel Maria Cristina',
+      overview:
+        'The Hotel Maria Cristina is a magnificent Belle Époque-style hotel located in the heart of San Sebastian. Originally built in 1912, this iconic hotel offers elegant accommodation, world-class dining, and an unmatched sense of old-world charm and sophistication.',
+    },
+    booking: {
+      numAdults: 1,
+      numChildren: 0,
+      numInfants: 0,
+      date: new Date(2024, 6, 10),
+      durationInDays: 5,
+      departingFrom: 'Edinburgh Airport',
+      priceInPounds: 650,
     },
   };
 
