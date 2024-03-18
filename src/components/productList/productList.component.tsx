@@ -1,15 +1,15 @@
 import { Product, SortOption } from '../../types';
-import Card from '../card/card.component';
+import ProductCard from '../productCard/productCard.component';
 
-type ResultsListProps = {
+type ProductListProps = {
   sortOption?: SortOption;
   products: Product[];
 };
 
-export default function ResultsList({
+export default function ProductList({
   sortOption = 'price',
   products,
-}: ResultsListProps) {
+}: ProductListProps) {
   function sortProducts(
     products: Product[],
     sortOption: SortOption
@@ -32,7 +32,7 @@ export default function ResultsList({
   return (
     <section className="flex flex-col gap-6">
       {sortProducts(products, sortOption).map((product: Product, i) => (
-        <Card
+        <ProductCard
           key={`hotel-${i}`}
           hotel={product.hotel}
           booking={product.booking}

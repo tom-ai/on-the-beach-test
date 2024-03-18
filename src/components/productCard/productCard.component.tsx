@@ -19,7 +19,7 @@ const hotelImages: { [key: string]: string } = {
   'Hotel Danieli': hotelImage3,
 };
 
-export default function Card({ hotel, booking }: CardProps) {
+export default function ProductCard({ hotel, booking }: CardProps) {
   const [overviewHidden, setOverviewHidden] = useState(true);
 
   const hotelImage = hotelImages[hotel.hotelName];

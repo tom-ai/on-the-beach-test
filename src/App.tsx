@@ -1,4 +1,4 @@
-import ResultsList from './components/resultsList/resultsList.component';
+import ProductList from './components/productList/productList.component';
 import SortOptions from './components/sortOptions/sortOptions.component';
 import { useState } from 'react';
 import { Product, SortOption } from './types';
@@ -24,7 +24,7 @@ function App() {
         handleSortOptionChange={handleSortOptionChange}
       />
       <div className="col-span-2">
-        <ResultsList sortOption={sortOption} products={products} />
+        <ProductList sortOption={sortOption} products={products} />
       </div>
     </main>
   );

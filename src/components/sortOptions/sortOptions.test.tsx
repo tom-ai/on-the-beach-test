@@ -4,14 +4,13 @@ import { SortOption } from '../../types';
 
 describe('Sort Options', () => {
   beforeEach(() => {
-    const handleSortOptionChange = vitest.fn();
     const sortOptions: SortOption[] = ['alphabetical', 'price', 'star-rating'];
 
     render(
       <SortOptions
         sortOption={sortOptions[0]}
         sortOptions={sortOptions}
-        handleSortOptionChange={handleSortOptionChange}
+        handleSortOptionChange={vitest.fn()}
       />
     );
   });

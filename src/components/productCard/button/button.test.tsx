@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { Hotel, Booking } from '../../../types';
-import Card from '../card.component';
+import ProductCard from '../productCard.component';
 
 describe('Price details', () => {
   const testHotel: Hotel = {
@@ -23,7 +23,7 @@ describe('Price details', () => {
   };
 
   beforeEach(() => {
-    render(<Card hotel={testHotel} booking={testBooking} />);
+    render(<ProductCard hotel={testHotel} booking={testBooking} />);
   });
   it('should render a Book now button', () => {
     const button = screen.getByRole('button', { name: /Book now/i });

@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import Card from './card.component';
+import ProductCard from './productCard.component';
 import { Booking, Hotel } from '../../types';
 
 describe('Hotel information', () => {
@@ -23,7 +23,7 @@ describe('Hotel information', () => {
   };
 
   beforeEach(() => {
-    render(<Card hotel={testHotel} booking={testBooking} />);
+    render(<ProductCard hotel={testHotel} booking={testBooking} />);
   });
 
   describe('Hotel details', () => {
@@ -104,4 +104,3 @@ describe('Hotel information', () => {
     });
   });
 });
-

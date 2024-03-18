@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { Hotel, Booking } from '../../../types';
-import Card from '../card.component';
+import ProductCard from '../productCard.component';
 
 describe('Booking information', () => {
   describe('Guest details', () => {
@@ -29,7 +29,9 @@ describe('Booking information', () => {
         ...booking,
         numAdults: 1,
       };
-      render(<Card hotel={testHotel} booking={bookingWithSingleAdult} />);
+      render(
+        <ProductCard hotel={testHotel} booking={bookingWithSingleAdult} />
+      );
 
       expect(screen.getByLabelText(/Adult/)).toHaveTextContent('1');
     });
@@ -40,7 +42,9 @@ describe('Booking information', () => {
         numAdults: 4,
       };
 
-      render(<Card hotel={testHotel} booking={bookingWithMultipleAdults} />);
+      render(
+        <ProductCard hotel={testHotel} booking={bookingWithMultipleAdults} />
+      );
 
       expect(screen.getByLabelText(/Adults/)).toHaveTextContent('4');
     });
@@ -51,7 +55,9 @@ describe('Booking information', () => {
         numChildren: 1,
       };
 
-      render(<Card hotel={testHotel} booking={bookingWithSingleChild} />);
+      render(
+        <ProductCard hotel={testHotel} booking={bookingWithSingleChild} />
+      );
 
       expect(screen.getByLabelText(/Child/)).toHaveTextContent('1');
     });
@@ -62,7 +68,9 @@ describe('Booking information', () => {
         numChildren: 3,
       };
 
-      render(<Card hotel={testHotel} booking={bookingWithMultipleChildren} />);
+      render(
+        <ProductCard hotel={testHotel} booking={bookingWithMultipleChildren} />
+      );
 
       expect(screen.getByLabelText(/Children/)).toHaveTextContent('3');
     });
@@ -73,7 +81,9 @@ describe('Booking information', () => {
         numInfants: 1,
       };
 
-      render(<Card hotel={testHotel} booking={bookingWithSingleInfant} />);
+      render(
+        <ProductCard hotel={testHotel} booking={bookingWithSingleInfant} />
+      );
 
       expect(screen.getByLabelText(/Infant/)).toHaveTextContent('1');
     });
@@ -84,7 +94,9 @@ describe('Booking information', () => {
         numInfants: 3,
       };
 
-      render(<Card hotel={testHotel} booking={bookingWithMultipleInfants} />);
+      render(
+        <ProductCard hotel={testHotel} booking={bookingWithMultipleInfants} />
+      );
 
       expect(screen.getByLabelText(/Infants/)).toHaveTextContent('3');
     });
@@ -95,7 +107,9 @@ describe('Booking information', () => {
         numChildren: 0,
       };
 
-      render(<Card hotel={testHotel} booking={bookingWithZeroChildren} />);
+      render(
+        <ProductCard hotel={testHotel} booking={bookingWithZeroChildren} />
+      );
 
       expect(screen.queryByLabelText(/Child/)).not.toBeInTheDocument();
       expect(screen.queryByLabelText(/Children/)).not.toBeInTheDocument();
@@ -107,7 +121,9 @@ describe('Booking information', () => {
         numInfants: 0,
       };
 
-      render(<Card hotel={testHotel} booking={bookingWithZeroInfants} />);
+      render(
+        <ProductCard hotel={testHotel} booking={bookingWithZeroInfants} />
+      );
 
       expect(screen.queryByLabelText(/Infant/)).not.toBeInTheDocument();
       expect(screen.queryByLabelText(/Infants/)).not.toBeInTheDocument();
@@ -134,7 +150,7 @@ describe('Booking information', () => {
     };
 
     it('should display a date formatted with ordinals', () => {
-      render(<Card hotel={testHotel} booking={testBooking} />);
+      render(<ProductCard hotel={testHotel} booking={testBooking} />);
 
       expect(screen.getByTestId('formatted-date')).toHaveTextContent(
         '3rd July 2019'
@@ -142,7 +158,7 @@ describe('Booking information', () => {
     });
 
     it('should display multiple day duration', () => {
-      render(<Card hotel={testHotel} booking={testBooking} />);
+      render(<ProductCard hotel={testHotel} booking={testBooking} />);
 
       expect(screen.getByTestId('formatted-duration').textContent).toBe(
         '2 days'
@@ -155,7 +171,9 @@ describe('Booking information', () => {
         durationInDays: 1,
       };
 
-      render(<Card hotel={testHotel} booking={bookingWithSingleDayDuration} />);
+      render(
+        <ProductCard hotel={testHotel} booking={bookingWithSingleDayDuration} />
+      );
 
       expect(screen.getByTestId('formatted-duration').textContent).toBe(
         '1 day'
@@ -183,13 +201,11 @@ describe('Booking information', () => {
     };
 
     it('should display departing from location', () => {
-      render(<Card hotel={testHotel} booking={testBooking} />);
+      render(<ProductCard hotel={testHotel} booking={testBooking} />);
 
       expect(screen.getByLabelText(/departing from/)).toHaveTextContent(
         'Test Station'
       );
     });
   });
-
-  
 });

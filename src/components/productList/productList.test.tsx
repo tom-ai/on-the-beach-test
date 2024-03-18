@@ -1,13 +1,13 @@
 import { render, screen, within } from '@testing-library/react';
-import ResultsList from './resultsList.component';
+import ProductList from './productList.component';
 import useProducts from '../../hooks/useProducts.component';
 import { Product } from '../../types';
 
-describe('ResultsList', () => {
+describe('ProductList', () => {
   const testProducts = [...useProducts()];
 
-  it('should by default sort the products by price', () => {
-    render(<ResultsList products={testProducts} />);
+  it('should sort the products by price by default', () => {
+    render(<ProductList products={testProducts} />);
 
     const sortedProducts = [...useProducts()].sort(
       (a: Product, b: Product) =>
@@ -34,7 +34,7 @@ describe('ResultsList', () => {
   });
 
   it('should render accessible product cards', () => {
-    render(<ResultsList products={testProducts} />);
+    render(<ProductList products={testProducts} />);
 
     const products = screen.getAllByRole('article');
 
