@@ -10,7 +10,7 @@ type CardProps = {
 export default function Card({ hotel, booking }: CardProps) {
   const [overviewHidden, setOverviewHidden] = useState(true);
   return (
-    <>
+    <article>
       <img alt={hotel.imageAltText} />
       <h2>{hotel.hotelName}</h2>
       <p>{hotel.hotelLocation}</p>
@@ -80,6 +80,6 @@ export default function Card({ hotel, booking }: CardProps) {
         <h3>Overview</h3>
         <p>{hotel.overview}</p>
       </div>
-    </>
+    </article>
   );
 }
