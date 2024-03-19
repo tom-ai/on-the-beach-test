@@ -1,30 +1,33 @@
-# React + TypeScript + Vite
+# OTB Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A webpage displaying three hotel booking products, with sort and expandable detail functionality.
 
-Currently, two official plugins are available:
+## Install & preview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clone the repo
+2. Run `npm install`
+3. Preview with `npm run preview`
 
-## Expanding the ESLint configuration
+Run the test suite with `npx vitest --reporter=verbose` 💥
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Details
 
-- Configure the top-level `parserOptions` property like this:
+As I would do any new project, I've gone for a **functionality first** approach.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### Testing & markup
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- TDD - Write a test and watch it fail, build a component to pass the test. Refactor and repeat.
+- Semantic HTML - using React Testing Library I am encouraged to write accessible HTML markup, rather than a concoction of `div`’s
+
+I get close to completing the acceptance criteria with only markup.
+
+### Styling & CSS
+
+Using Tailwind CSS enabled quick styling, however I could have used a more robust solution like CSS modules or CSS-in-JS. The tests provided confidence that any breaking changes will be noticed.
+
+### Acceptance criteria
+
+- ✅ Sort the results by price (this should be the default)
+- ✅ Sort the results by star rating and highlight when active
+- ✅ Sort the results alphabetically by hotel name and highlight when active
+- ✅ Ability to toggle expanded hotel description

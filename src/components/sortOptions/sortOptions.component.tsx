@@ -12,11 +12,11 @@ export default function SortOptions({
   handleSortOptionChange,
 }: SortOptionsProps) {
   return (
-    <ul className="">
+    <ul>
       {sortOptions.map((option: SortOption) => (
         <li key={option}>
           <input
-            className="hidden"
+            className="sr-only"
             onChange={(e) => {
               handleSortOptionChange(e.target.value as SortOption);
             }}

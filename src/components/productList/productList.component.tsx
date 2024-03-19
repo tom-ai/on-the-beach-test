@@ -30,14 +30,12 @@ export default function ProductList({
   }
 
   return (
-    <section className="flex flex-col gap-6">
+    <ol className="flex flex-col gap-6 col-span-2">
       {sortProducts(products, sortOption).map((product: Product, i) => (
-        <ProductCard
-          key={`hotel-${i}`}
-          hotel={product.hotel}
-          booking={product.booking}
-        />
+        <li key={`hotel-${i}`}>
+          <ProductCard hotel={product.hotel} booking={product.booking} />
+        </li>
       ))}
-    </section>
+    </ol>
   );
 }

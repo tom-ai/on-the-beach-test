@@ -23,9 +23,8 @@ function App() {
         // sortOption={sortOption}
         handleSortOptionChange={handleSortOptionChange}
       />
-      <div className="col-span-2">
+
         <ProductList sortOption={sortOption} products={products} />
-      </div>
     </main>
   );
 }
