@@ -1,6 +1,6 @@
 # OTB Test
 
-A webpage displaying three hotel booking products, with sort and expandable detail functionality.
+A web page displaying three hotel booking products, with sort and expandable detail functionality.
 
 ## Install & preview
 
