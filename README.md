@@ -31,3 +31,9 @@ Using Tailwind CSS enabled quick styling, however I could have used a more robus
 - ✅ Sort the results by star rating and highlight when active
 - ✅ Sort the results alphabetically by hotel name and highlight when active
 - ✅ Ability to toggle expanded hotel description
+
+### Screenshots
+
+<img width="860" alt="Screenshot 1" src="https://github.com/tom-ai/otb-test/assets/34452971/2e9b61e4-f95a-443c-8f37-7f86093f947c">
+<img width="860" alt="Screenshot 2" src="https://github.com/tom-ai/otb-test/assets/34452971/64ecde1f-a0db-4e20-8633-b4a1d267d225">
+
